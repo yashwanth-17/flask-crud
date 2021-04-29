@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block
+body %}
+<div class="container">
+  <a href="{{ url_for('addTodo') }}" class="btn btn-outline-dark btn-sm my-3">add a new todo</a>
+  <h3>Active Todos</h3>
+  {% if todos==[] %}
+  <div class="alert alert-warning">no records found</div>
+  {% else %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in todos %}
+      <tr>
+        <th>{{loop.index}}</th>
+        <td>{{todo.title}}</td>
+        <td>{{todo.desc}}</td>
+        <td>{{todo.time}}</td>
+        <td>
+          <a class="btn btn-outline-dark btn-sm" href="/update/{{todo.id}}">update</a>
+          <a class="btn btn-outline-danger btn-sm" href="/delete/{{todo.id}}">delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+</div>
+{% endblock body %}

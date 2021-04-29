@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block title %} Add Todo {% endblock title %} {% block
+body %}
+<div class="container">
+    <h3 class="my-3">Add a New Todo</h3>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input required name="title" class="form-control form-control-sm" id="title">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input required name="desc" class="form-control form-control-sm" id="desc">
+        </div>
+        <button type="submit" class="btn btn-outline-dark btn-sm">Submit</button>
+    </form>
+</div>
+{% endblock body %}
